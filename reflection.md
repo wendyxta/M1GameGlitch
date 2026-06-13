@@ -12,18 +12,26 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 Document at least 3 bugs you found. Add rows as needed.
 
-| Input | Expected Behavior | Actual Behavior | Console Output / Error |
-|-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
-
+Secret: 53
+| Input | Expected Behavior | Actual Behavior | Console Output / Error        |
+|-------|-------------------|-----------------|-------------------------------|
+|80     |go lower           |go higher        |incorrect higher/lower hint    |
+|95     |go lower           |go higher        |incorrect higher/lower         |
+|105    |go lower           |go higher        |allow answer past range 1-100  |
+|13     |go higher          |go lower         |incorrect higher/lower         |
+|-23    |go higher          |go lower         |allow answer below range 1-100 |
+|53     |correct (+5)       |correct (-5)     |lost points for correct answer |
+|13     |correct            |correct          |(1st try correct) --> score box doesnt update even though console says final score: 70
+error: new game doesnt work after winning a game, secret changes, but history stays, and console message "You already won. Start a new game to play again."
 ---
 
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+    - Claude Code
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+    - To fix the logic of the hints, Claude suggested to swap the hint messages. (If the guess is too high, then the hint should be to go lower)
+    - I verified by applying the changes and retrying the game with the changed code, and the hints are now correct as expected.
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
 ---
