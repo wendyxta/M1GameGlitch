@@ -33,13 +33,19 @@ It wrote the code, ran away, and now the game is unplayable.
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User enters a guess of 25
+2. Game returns "Go Lower", Score: -5
+3. User enters a guess of 2 
+4. Game returns "Go Higher", Score: -10
+5. User enters a guess of 15 
+6. Game returns "Go Lower", Score: -15
+7. User enters a guess of 6
+8. Game returns "Go Higher", Score: -20
+9. User enters a guess of 8 → "Correct!"
+10. Game ends after the correct guess of 8
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
+![alt text](image.png)
 
 ## 🧪 Test Results
 
@@ -48,6 +54,18 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 # pytest tests/
 # ========================= X passed in 0.XXs =========================
 ```
+cachedir: .pytest_cache
+rootdir: C:\Users\wendy2.0\Downloads\Codepath\AI110\M1GameGlitch
+plugins: anyio-4.13.0
+collected 5 items                                                                                                                                          
+
+tests/test_game_logic.py::test_winning_guess PASSED                                                                                                  [ 20%]
+tests/test_game_logic.py::test_guess_too_high PASSED                                                                                                 [ 40%]
+tests/test_game_logic.py::test_guess_too_low PASSED                                                                                                  [ 60%]
+tests/test_game_logic.py::test_too_high_hint_says_lower PASSED                                                                                       [ 80%]
+tests/test_game_logic.py::test_too_low_hint_says_higher PASSED                                                                                       [100%]
+
+==================================================================== 5 passed in 0.09s ====================================================================
 
 ## 🚀 Stretch Features
 

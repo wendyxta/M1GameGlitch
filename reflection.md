@@ -28,7 +28,7 @@ error: new game doesnt work after winning a game, secret changes, but history st
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
-    - I used Claude Code on this project.
+    - I used Claude Code, Sonnet 4.6 model on this project.
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
     - To fix the logic of the hints, where it gave backwards hints, Claude suggested to swap the hint messages. For example, if the guess is too high, then the hint should be to go lower, rather than go higher.
     - I verified by applying the changes and retrying the game with the changed code, and the hints are now correct as expected.
