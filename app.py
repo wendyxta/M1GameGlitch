@@ -1,5 +1,6 @@
 import random
 import streamlit as st
+from logic_utils import check_guess
 
 def get_range_for_difficulty(difficulty: str):
     if difficulty == "Easy":
@@ -28,23 +29,6 @@ def parse_guess(raw: str):
 
     return True, value, None
 
-#FIXME: Logic breaks here (backwards hints)
-def check_guess(guess, secret):
-    if guess == secret:
-        return "Win", "🎉 Correct!"
-
-    try:
-        if guess > secret:
-            return "Too High", "📉 Go LOWER!"
-        else:
-            return "Too Low", "📈 Go HIGHER!"
-    except TypeError:
-        g = str(guess)
-        if g == secret:
-            return "Win", "🎉 Correct!"
-        if g > secret:
-            return "Too High", "📉 Go LOWER!"
-        return "Too Low", "📈 Go HIGHER!"
 
 #FIXME: Logic breaks here (points are awarded for even numbered wrong guesses, and penalizes odd numbered guesses)
 #FIXME: attempt number starts at 0 instead of 1 
