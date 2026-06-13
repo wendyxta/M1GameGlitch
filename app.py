@@ -143,17 +143,18 @@ if st.session_state.status != "playing":
         st.error("Game over. Start a new game to try again.")
     st.stop()
 
+#FIXME: attempts being consumed before guess is parsed, even if invalid guess
 if submit:
-    st.session_state.attempts += 1
-
     ok, guess_int, err = parse_guess(raw_guess)
 
     if not ok:
         st.session_state.history.append(raw_guess)
         st.error(err)
     else:
+        st.session_state.attempts += 1
         st.session_state.history.append(guess_int)
 
+        #FIXME: guesses are compared as strings, rather than numerically --> "9">"10"
         if st.session_state.attempts % 2 == 0:
             secret = str(st.session_state.secret)
         else:
