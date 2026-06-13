@@ -30,8 +30,8 @@ def parse_guess(raw: str):
     return True, value, None
 
 
-#FIXME: Logic breaks here (points are awarded for even numbered wrong guesses, and penalizes odd numbered guesses)
-#FIXME: attempt number starts at 0 instead of 1 
+#FIX: Logic breaks here (points are awarded for even numbered wrong guesses, and penalizes odd numbered guesses)
+#FIX: attempt number starts at 0 instead of 1 
 def update_score(current_score: int, outcome: str, attempt_number: int):
     if outcome == "Win":
         points = 100 - 10 * (attempt_number + 1)
@@ -127,7 +127,7 @@ if st.session_state.status != "playing":
         st.error("Game over. Start a new game to try again.")
     st.stop()
 
-#FIXME: attempts being consumed before guess is parsed, even if invalid guess
+#FIX: attempts being consumed before guess is parsed, even if invalid guess
 if submit:
     ok, guess_int, err = parse_guess(raw_guess)
 
@@ -138,7 +138,7 @@ if submit:
         st.session_state.attempts += 1
         st.session_state.history.append(guess_int)
 
-        #FIXME: guesses are compared as strings, rather than numerically --> "9">"10"
+        #AI FIXME Suggestion: guesses are compared as strings, rather than numerically --> "9">"10"
         if st.session_state.attempts % 2 == 0:
             secret = str(st.session_state.secret)
         else:

@@ -34,6 +34,7 @@ error: new game doesnt work after winning a game, secret changes, but history st
     - I verified by applying the changes and retrying the game with the changed code, and the hints are now correct as expected.
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
     - When prompting Claude to fix a bug of showing the wrong number of attempts when guesses are invalid, it pointed out another bug of numbers being compared lexicographically as strings rather than numerically, but when verifying the result, I didn't notice it to be a bug when playing the game. 
+    - it also recommended adding a complicated line that looked unnecessary: "sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))"
 
 ---
 
